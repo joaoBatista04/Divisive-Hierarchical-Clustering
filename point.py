@@ -8,6 +8,6 @@ class Point:
         self.id = id
         self.coordinates = coordinates
 
-    #Calculating euclidean distance between two points, following the formula: srqt((x1-y1)^2 + (x2-y2)^2 + ... + (xn-yn)^2)
+    #Calculating euclidean distance between two points, following the formula: sqrt((x1-y1)^2 + (x2-y2)^2 + ... + (xn-yn)^2)
     def euclidean_distance(self, point: 'Point') -> float:
         return math.sqrt(sum((a-b) ** 2 for a, b in zip(self.coordinates, point.coordinates)))
