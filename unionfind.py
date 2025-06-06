@@ -19,6 +19,7 @@ class UnionFind:
         #Find the roots of the two sets
         rx, ry = self.find(x), self.find(y)
 
+        #If the points are already in the same group (set), it is not necessary to group them again
         if rx == ry:
             return
         
