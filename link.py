@@ -13,8 +13,8 @@ class Link:
         if self.distance != link.distance:
             return self.distance < link.distance
         
-            return (min(self.a.id, self.b.id),
-                    max(self.a.id, self.b.id)) < (
-                        min(link.a.id, link.b.id),
-                        max(link.a.id, link.b.id)
-                    )
+        return (min(self.a.id, self.b.id),
+                max(self.a.id, self.b.id)) < (
+                    min(link.a.id, link.b.id),
+                    max(link.a.id, link.b.id)
+                )
