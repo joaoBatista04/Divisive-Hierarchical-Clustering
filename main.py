@@ -1,4 +1,5 @@
 from utils import *
+import sys
 
 def main():
     #Getting informations from the user (path of input and output files and the parameter K - groups amount)
@@ -8,6 +9,9 @@ def main():
 
     #Reading point informations (coordinates and dimensions) from CSV file
     points = read_csv(fp_input)
+
+    #Checking if the user has not placed an incorrect number of groups
+    check_K(K, points)
 
     #Calculating distances between points and building the links
     links = build_links(points)

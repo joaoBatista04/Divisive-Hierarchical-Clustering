@@ -1,4 +1,5 @@
 import csv
+import sys
 
 from typing import List, Dict
 from point import Point
@@ -16,6 +17,16 @@ def read_csv(fp_input_path: str) -> List[Point]:
             points.append(Point(i, coordinates))
     
     return points
+
+def check_K(K: int, points: List[Point]):
+    #Checking if the user has not placed an incorrect number of groups
+    if(len(points) < K):
+        print("O numero de grupos requerido eh maior do que a quantidade de pontos existentes.\n")
+        sys.exit(1)
+
+    if(K < 0):
+        print("O numero de grupos deve ser positivo.\n")
+        sys.exit(1)
 
 def build_links(points: List[Point]) -> List[Link]:
     points_amount = len(points)
@@ -80,9 +91,10 @@ def print_groups(groups: List[List[int]]):
     for group in groups:
         print(", ".join(map(str, group)))
 
-def save_output(fp_output_path, groups):
+def save_output(fp_output_path: str, groups: List[List[int]]):
     #Save each group as a line in the CSV file
     with open(fp_output_path, 'w', newline='') as f:
-        writer = csv.writer(f)
         for group in groups:
-            writer.writerow(group)
+            f.write("  ")
+            line = ",  ".join(str(x) for x in group)
+            f.write(line + "\n")
